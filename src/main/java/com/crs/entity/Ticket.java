@@ -1,5 +1,9 @@
 package com.crs.entity;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -22,6 +26,9 @@ public class Ticket {
 	private String description;
 	
 	private String status;
+	
+	@CreationTimestamp
+	private LocalDateTime createdOn;
 
 
 	public String getTicketId() {
@@ -63,18 +70,37 @@ public class Ticket {
 		this.engineer = engineer;
 	}
 
+	
+	public String getDescription() {
+		return description;
+	}
+
 
 	public String getStatus() {
 		return status;
 	}
-
+	
+	public static boolean isValidStatus(String status) {
+		return status.equals("RAISED") || status.equals("WIP")
+				|| status.equals("RESOLVED") || status.equals("ESCALATED");
+	}
 
 	public void setStatus(String status) {
-		if(status.equals("RAISED") || status.equals("WIP")
-				|| status.equals("RESOLVED") || status.equals("ESCALATED")) {
+		if(isValidStatus(status)) {
 			this.status = status;			
 		}
 	}
+	
+
+	public LocalDateTime getCreatedOn() {
+		return createdOn;
+	}
+
+
+	public void setCreatedOn(LocalDateTime createdOn) {
+		this.createdOn = createdOn;
+	}
+	
 	
 	
 	

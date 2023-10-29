@@ -82,6 +82,14 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+
+	public boolean isLoginStatus() {
+		return loginStatus;
+	}
+
+	public void setLoginStatus(boolean loginStatus) {
+		this.loginStatus = loginStatus;
+	}
 	
 	
 }
