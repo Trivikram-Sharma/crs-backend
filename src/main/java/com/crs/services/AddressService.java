@@ -45,6 +45,9 @@ public class AddressService {
 		return arep.findByPincode(pincode);
 	}
 	
+	public Address getAddressWithBuilding(String building) {
+		return arep.findById(building).orElse(null);
+	}
 	//UPDATE METHODS
 	public boolean updateAddressWithId(Address address,String building) {
 		Optional<Address> aop = arep.findById(building);

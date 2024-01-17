@@ -63,11 +63,11 @@ public class TicketService {
 	}
 	
 	public List<Ticket> getAllTicketsOfManager(User manager){
-		return trep.findByCustomer(manager);
+		return trep.findByManager(manager);
 	}
 	
 	public List<Ticket> getAllTicketsOfEngineer(User engineer){
-		return trep.findByCustomer(engineer);
+		return trep.findByEngineer(engineer);
 	}
 	
 	public List<Ticket> getAllTicketsWithStatus(String status){
