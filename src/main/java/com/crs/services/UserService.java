@@ -1,5 +1,6 @@
 package com.crs.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -41,6 +42,10 @@ public class UserService {
 		else {
 			return uop.get();
 		}
+	}
+	
+	public List<User> getAllUsers() {
+		return urep.findAll();
 	}
 	
 	//UPDATE METHODS
